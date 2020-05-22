@@ -67,7 +67,7 @@ jobs:
               git commit -am 'updated from gist submodule'
               git push origin actions
            fi
-           git submodule deinit
+           git submodule deinit gists
            if [ 0 -ne $TEST ]; then
               git fetch origin master
               git checkout master
