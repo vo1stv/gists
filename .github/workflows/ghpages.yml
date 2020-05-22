@@ -51,7 +51,7 @@ jobs:
            git config --global user.email "${{ secrets.ROBOT_EMAIL }}"
            git config --global user.name "${{ secrets.ROBOT_NAME }}"
            git fetch origin actions
-           git checkout actions -- index.html
+           git checkout origin/actions -- index.html
            TEST=$(git status --porcelain | wc -l)
            if [ 0 -eq $TEST ]; then
               echo "No changes"
