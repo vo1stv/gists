@@ -50,6 +50,8 @@ jobs:
       run: |
            ls -l
            touch index.html
+           git config --global user.email "${{ secrets.ROBOT_EMAIL }}"
+           git config --global user.name "${{ secrets.ROBOT_NAME }}"
            git commit -am 'redeploying'
            git push origin gh-pages
            
