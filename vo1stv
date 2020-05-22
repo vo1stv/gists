@@ -1,1 +1,3 @@
-Gists allow a directory of files to be publicly or privately stored within a single repository.  The repository structure is flat and has no support for subdirectories
+Gists allow a directory of files to be publicly or privately stored within a single repository.  The repository structure is flat and has no support for subdirectories.
+
+The Gist has all other features of a git repo, and changes can be monitored from within GitHub courtesy of GitHub Actions.  For an example, refer to the GitHub repo associated with this gist at https://github.com/vo1stv/gists
