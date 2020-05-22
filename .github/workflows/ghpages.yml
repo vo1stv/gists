@@ -65,7 +65,6 @@ jobs:
               echo "No changes"
            else
               git commit -am 'updated from gist submodule'
-              git push origin actions
            fi
            git submodule deinit gists
            if [ 0 -ne $TEST ]; then
@@ -77,6 +76,7 @@ jobs:
            fi
            git checkout actions
            if [ 0 -ne $TEST ]; then
+              git push origin actions
               git checkout gh-pages
               git checkout origin/actions -- index.html
               TEST=$(git status --porcelain | wc -l)
@@ -87,4 +87,5 @@ jobs:
                  git push origin gh-pages
               fi
            fi 
+           git checkout gh-pages
            
