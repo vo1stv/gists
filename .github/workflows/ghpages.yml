@@ -8,6 +8,8 @@ on:
   push:
     branches:
       - actions  
+    paths:
+      - '.github/workflows/**'
   schedule:
       # * is a special character in YAML so you have to quote this string
       - cron:  '0 * * * *'
@@ -51,12 +53,38 @@ jobs:
            git config --global user.email "${{ secrets.ROBOT_EMAIL }}"
            git config --global user.name "${{ secrets.ROBOT_NAME }}"
            git fetch origin actions
-           git checkout origin/actions -- index.html
+           git checkout actions
+           git submodule init gists
+           git submodule update gists
+           cd gists
+           GIST=`git remote -v | grep -F "(fetch)" | grep -Eo "https://[^ ]+"`
+           git pull origin master
+           cd ..
            TEST=$(git status --porcelain | wc -l)
            if [ 0 -eq $TEST ]; then
               echo "No changes"
            else
-              git commit -am 'redeploying'
-              git push origin gh-pages
+              git commit -am 'updated from gist submodule'
+              git push origin actions
+           fi
+           git submodule deinit
+           if [ 0 -ne $TEST ]; then
+              git fetch origin master
+              git checkout master
+              git remote add -t master gist ${GIST}
+              git pull gist master
+              git push origin master
+           fi
+           git checkout actions
+           if [ 0 -ne $TEST ]; then
+              git checkout gh-pages
+              git checkout origin/actions -- index.html
+              TEST=$(git status --porcelain | wc -l)
+              if [ 0 -eq $TEST ]; then
+                 echo "No changes"
+              else
+                 git commit -am 'redeploying'
+                 git push origin gh-pages
+              fi
            fi 
            
