@@ -1,0 +1,7 @@
+However and whatever you write, you can append notes to the end of your content (assuming some free-space remains). If the language you choose has support for comments, your notes can be appended in a non-intrusive way.
+
+In natural speech, comments may be: 1) parenthetical; or 2) exclamatory; the former is more generally called block-oriented, and the latter, line-oriented. In both cases, the comments are separated from the main content by opening and closing delimiters.  The closing delimited for a line-oriented comment is always a full-stop or line-ending. For block comments, recognizable pairs of opening and closing symbols such as round or square brackets are used. 
+
+To demonstrate how easy it is to append notes in proctice, one has been added to the end of this file.
+
+NOTE: HOW-TO append notes
