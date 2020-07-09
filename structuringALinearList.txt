@@ -4,7 +4,7 @@ Even a linear list may hide a hierarchy within it.  Simply turn pairs of markers
 
 It is easy to write a program that converts a linear list with a hidden hierarchy into a list of nested lists that more clearly reveals its structure.  The algorithm relies on the programmer designating matched sets of opening and closing delimiters.  The two sets must be the same length.  Markers in one set are opening delimiters and a corresponding marker in the other set is a closing delimiter.  A marker can be designated as an opening delimiter or a closing delimiter: the designations are mutually exclusive.
 
-Given the matched sets of opening and closing delimiters, the algorithm follows:
+Given two matched sets of opening and closing delimiters, the algorithm follows:
 1)    Read the linear list from the start
 2)    Upon encountering an opening delimiter, create a new list and insert a placeholder to mark the current position in the parent list. 
 3)    Continue reading the linear list. Subsequent content is removed from the source list and stored into the new list until the corresponding closing delimiter is encountered.  
