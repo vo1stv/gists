@@ -1,0 +1,8 @@
+The files in this location present technical material in a straight-forward manner, but some concepts require familiarity with background material before reading.
+
+A general assumption is made that the reader is familiar with GitHub and its features, especially those listed below:
+    1)  gist.github.com
+    2)  github.com
+    3)  git
+    4)  repositories
+    5)  text files
